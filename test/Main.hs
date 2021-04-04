@@ -175,7 +175,7 @@ cliSpec =
         actualStdout `shouldBe` ""
         exitCode `shouldBe` ExitFailure 1
         actualStderr `shouldBe` "No symbols found at (8,21) in Module1\n"
-        
+
     describe "point-defs" $ do
       it "outputs the location of symbol when definition site can be found is indexed" $
         runHieDbCli ["point-defs", "Module1", "13", "29"]
@@ -252,7 +252,7 @@ cliSpec =
       it "lists uids for given module" $
         runHieDbCli ["module-uids", "Module1"]
           `succeedsWithStdin` "main\n"
-    
+
     describe "rm" $
       it "removes given module from DB" $ do
         runHieDbCli ["rm", "Module1"]
@@ -260,7 +260,7 @@ cliSpec =
         -- Check with 'ls' comand that there's just one module left
         cwd <- getCurrentDirectory
         runHieDbCli ["ls"] `succeedsWithStdin` (cwd </> testTmp </> "Sub/Module2.hie\tSub.Module2\tmain\n")
-    
+
 
 
 succeedsWithStdin :: IO (ExitCode, String, String) -> String -> Expectation
@@ -280,7 +280,7 @@ runHieDbCli args = do
 
 
 findHieDbExecutable :: IO FilePath
-findHieDbExecutable = 
+findHieDbExecutable =
   maybe (die "Did not find hiedb executable") pure =<< findExecutable "hiedb"
 
 
