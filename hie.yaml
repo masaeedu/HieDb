@@ -1,10 +1,10 @@
 cradle:
   cabal:
-  - path: "./lib"
+  - path: "./src"
     component: "lib:HieDb"
 
-  - path: "./app"
-    component: "HieDb:exe:HieDb"
+  - path: "./exe"
+    component: "HieDb:exe:hiedb"
 
-  - path: "./app/Paths_HieDb.hs"
-    component: "HieDb:exe:HieDb"
+  - path: "./test"
+    component: "HieDb:test:hiedb-tests"
